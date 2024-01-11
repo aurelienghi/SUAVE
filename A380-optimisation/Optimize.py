@@ -68,7 +68,7 @@ def setup():
 
     # [ tag, scaling, units ]
     problem.objective = np.array([
-        [ 'fuel_burn', 10000, 1*Units.kg ]
+        [ 'fuel_burn', 10, 1*Units.kg ]
     ],dtype=object)
     
     # -------------------------------------------------------------------
