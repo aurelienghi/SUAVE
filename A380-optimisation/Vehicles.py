@@ -188,8 +188,8 @@ def base_setup():
     fuselage.heights.at_three_quarters_length   = 8.3 
     fuselage.heights.at_wing_root_quarter_chord = 8.3 
 
-    fuselage.areas.side_projected  = 239.20 #!!
-    fuselage.areas.wetted          = 327.01 #!!
+    fuselage.areas.side_projected  = 560
+    fuselage.areas.wetted          = 560
     fuselage.areas.front_projected = 50.0
 
     fuselage.effective_diameter    = 8.0
@@ -242,8 +242,8 @@ def base_setup():
     #initialize the gas turbine network
     gt_engine                   = SUAVE.Components.Energy.Networks.Turbofan()
     gt_engine.tag               = 'turbofan'
-    gt_engine.origin            = [[12.0,4.38,-2.1],[12.0,-4.38,-2.1]] # ADD 3 and 4 !!
-    gt_engine.number_of_engines = 4.0
+    gt_engine.origin            = [[22.0,15.,-2.0],[22.0,-15.,-2.0],[30.0,25.,0.0],[30.0,-25.,0.0]]
+    gt_engine.number_of_engines = 4
     gt_engine.bypass_ratio      = 9.6
 
     #add working fluid to the network
@@ -341,7 +341,7 @@ def base_setup():
 
     #design sizing conditions
     altitude         = 35000.0*Units.ft
-    mach_number      = 0.85
+    mach_number      = 0.7
 
     # add thrust to the network
     gt_engine.thrust = thrust

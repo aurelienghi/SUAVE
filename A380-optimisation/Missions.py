@@ -177,7 +177,8 @@ def base(analyses):
     segment.planet     = planet
 
     segment.air_speed  = 488. * Units.knots # Changed for A380
-    segment.distance   = 7000. * Units.nmi # Changed for A380
+    segment.distance   = 4000. * Units.nmi # Changed for A380
+    segment.altitude   = 15000
 
     # add to mission
     mission.append_segment(segment)

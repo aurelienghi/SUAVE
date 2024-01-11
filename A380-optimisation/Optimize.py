@@ -36,7 +36,7 @@ def main():
     
     # Uncomment for the first optimization
     output = scipy_setup.SciPy_Solve(problem,solver='SLSQP')
-    print (output)    
+    print (output)
 
     print('fuel burn = ', problem.summary.base_mission_fuelburn)
     print('fuel margin = ', problem.all_constraints())
@@ -60,9 +60,7 @@ def setup():
     # -------------------------------------------------------------------
 
     #   [ tag                   , initial,     lb , ub        , scaling , units ]
-    problem.inputs = np.array([
-        [ 'wing_area'           ,  845    ,    50. ,   1000.    ,   100.  , 1*Units.meter**2],
-    ],dtype=object)
+    problem.inputs = np.array([[ 'wing_area'           ,  845    ,    50. ,   1000.    ,   100.  , 1*Units.meter**2]],dtype=object)
 
     # -------------------------------------------------------------------
     # Objective
@@ -79,7 +77,7 @@ def setup():
     
     # [ tag, sense, edge, scaling, units ]
     problem.constraints = np.array([
-        [ 'design_range_fuel_margin' , '>', 0., 1E-1, 1*Units.less], #fuel margin defined here as fuel 
+        [ 'design_range_fuel_margin' , '>', 0., 100, 1*Units.less], #fuel margin defined here as fuel 
     ],dtype=object)
     
     # -------------------------------------------------------------------
@@ -91,7 +89,6 @@ def setup():
     problem.aliases = [
         [ 'wing_area'                        ,   ['vehicle_configurations.*.wings.main_wing.areas.reference',
                                                   'vehicle_configurations.*.reference_area'                    ]],
-        [ 'cruise_altitude'                  , 'missions.base.segments.climb_5.altitude_end'                    ],
         [ 'fuel_burn'                        ,    'summary.base_mission_fuelburn'                               ],
         [ 'design_range_fuel_margin'         ,    'summary.max_zero_fuel_margin'                                ],
     ]    
